@@ -1,5 +1,6 @@
 import React from 'react';
 import BuildControl from './BuildControl/BuildControl';
+import classes from './BuildControls.css'
 
 const controls = [
   {label: 'Salad', type: 'salad'},
@@ -9,8 +10,14 @@ const controls = [
 ];
 
 const buildControls = (props) => (
-  <div>
-    {controls.map( ctrl => <BuildControl key={ctrl.label} label={ctrl.label} /> )}
+  <div className={classes.BuildControls}>
+    {controls.map( ctrl => <BuildControl 
+      key={ctrl.label} 
+      label={ctrl.label} 
+      added={() => props.ingredientAdded(ctrl.type)}
+      removed={() => props.ingredientDeduct(ctrl.type)}
+      isdisabled={props.disabled[ctrl.type]}
+      /> )}
   </div>
 );
 
