@@ -2,7 +2,14 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  display: flex;
-  align-items: center;
+  display: block;
   height: 100%;
+}
+
+@media (min-width: 500px) {
+  .NavItems {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+  }
 }
