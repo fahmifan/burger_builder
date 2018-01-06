@@ -45,7 +45,7 @@ class ContactData extends Component {
           elementType: 'input',
           elementConfig: {
             type: 'email',
-            placeHolder: 'Your Name'
+            placeHolder: 'Your E-mail'
           },
           value: ''
         },
