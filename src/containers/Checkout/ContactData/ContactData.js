@@ -8,11 +8,57 @@ import Input from '../../../components/Input/Input';
 
 class ContactData extends Component {
   state = {
-    name: '',
-    email: '',
-    address: {
-      street: '',
-      postalCode: '',
+    orderForm: {
+        name: {
+          elemntType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeHolder: 'Your Name'
+          },
+          value: ''
+        },
+        street: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeHolder: 'Street'
+          },
+          value: ''
+        },
+        zipCode: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeHolder: 'ZIP Code'
+          },
+          value: ''
+        },
+        country: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeHolder: 'Country'
+          },
+          value: ''
+        },
+        email: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'email',
+            placeHolder: 'Your Name'
+          },
+          value: ''
+        },
+        deliveryMethod: {
+          elementType: 'select',
+          elementConfig: {
+            options: [
+              {value: 'fastest', displayValue: 'Fastest'},
+              {value: 'cheapest', displayValue: 'Cheapest'}
+            ]
+          },
+          value: ''
+        }
     },
     loading: false
   }
@@ -23,16 +69,6 @@ class ContactData extends Component {
     const order = {
       ingredients: this.props.ingredients,
       price: this.props.price,
-      customer: {
-        name: 'fahmi irfan',
-        address: {
-          street: 'Test street 1',
-          zipCode: '51152',
-          country: 'Indonesia'
-        }
-      },
-      email: 'test@email.com',
-      deliveryMethod: 'fatest'
     }
     axios.post('/orders.json', order)
       .then(response => {
