@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios from '../../../axios-order';
 
 import Button from '../../../components/UI/Button/Button';
 import classes from './ContactData.css';
@@ -33,7 +33,7 @@ class ContactData extends Component {
       email: 'test@email.com',
       deliveryMethod: 'fatest'
     }
-    axios.post('https://react-myburger-19cb8.firebaseio.com/orders.json', order)
+    axios.post('/orders.json', order)
       .then(response => {
         this.setState({loading: false});
         this.props.history.push('/');
