@@ -21,4 +21,4 @@ const input = (props) => {
   </div>);
 };
 
-export default;
+export default input;
