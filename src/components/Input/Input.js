@@ -8,7 +8,7 @@ const input = (props) => {
       inputElement = <input className={classes.InputElement} {...props}/>;
       break;
     case ('textarea'):
-      inputElemnt = <textarea className={classes.InputElement} {...props}/>;
+      inputElement = <textarea className={classes.InputElement} {...props}/>;
       break;
     default: 
       inputElement = <input className={classes.InputElement} {...props}/>;
