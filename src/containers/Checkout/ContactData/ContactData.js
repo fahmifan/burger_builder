@@ -140,6 +140,7 @@ class ContactData extends Component {
       ...updatedOrderForm[inputID]
     };
     updatedFormElement.value = event.target.value;
+    updatedFormElement.touched = true;
     updatedFormElement.valid = this.checkValidity(
       updatedFormElement.value, 
       updatedFormElement.validation
@@ -149,7 +150,6 @@ class ContactData extends Component {
     this.setState({
       orderForm: updatedOrderForm
     });
-    console.log(event.target.value);
   }
   
   render() {
