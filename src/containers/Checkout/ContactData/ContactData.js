@@ -20,7 +20,8 @@ class ContactData extends Component {
            required: true 
           },
           valid: false,
-          touched: false
+          touched: false,
+          errorMessage: 'is required'
         },
         street: {
           elementType: 'input',
@@ -30,10 +31,11 @@ class ContactData extends Component {
           },
           value: '',
           validation: {
-            required: true 
+            required: true,
           },
           valid: false,
-          touched: false
+          touched: false,
+          errorMessage: 'is required'
         },
         zipCode: {
           elementType: 'input',
@@ -48,7 +50,8 @@ class ContactData extends Component {
             maxLength: 5
           },
           valid: false,
-          touched: false
+          touched: false,
+          errorMessage: 'is required, min 5 & max 5'
         },
         country: {
           elementType: 'input',
@@ -61,7 +64,8 @@ class ContactData extends Component {
             required: true 
           },
           valid: false,
-          touched: false
+          touched: false,
+          errorMessage: 'is required'
         },
         email: {
           elementType: 'input',
@@ -74,7 +78,8 @@ class ContactData extends Component {
             required: true 
           },
           valid: false,
-          touched: false
+          touched: false,
+          errorMessage: 'is required'
         },
         deliveryMethod: {
           elementType: 'select',
