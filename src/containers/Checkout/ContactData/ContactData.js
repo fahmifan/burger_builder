@@ -19,6 +19,7 @@ class ContactData extends Component {
           validation: {
            required: true 
         },
+          valid: false,
           touched: false
         },
         street: {
