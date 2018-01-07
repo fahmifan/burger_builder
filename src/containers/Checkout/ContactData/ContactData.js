@@ -128,6 +128,7 @@ class ContactData extends Component {
     if(!rules) {
       return true;
     }
+
     if(rules.required) {
       isValid = value.trim() !== '' && isValid;
     }
@@ -191,7 +192,8 @@ class ContactData extends Component {
               touched={formElement.config.touched}
               shouldValidate={formElement.config.validation}
               invalid={!formElement.config.valid} 
-              errorMessage={formElement.config.errorMessage}/>
+              errorMessage={formElement.config.errorMessage}
+              label={formElement.config.elementConfig.placeholder}/>
           ))}
           <Button 
             btnType="Success" 
