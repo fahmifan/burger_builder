@@ -178,7 +178,8 @@ class ContactData extends Component {
               change={(evt) => this.inputChangeHandler(evt, formElement.id)}
               touched={formElement.config.touched}
               shouldValidate={formElement.config.validation}
-              invalid={!formElement.config.valid} />
+              invalid={!formElement.config.valid} 
+              errorMessage={formElement.config.errorMessage}/>
           ))}
           <Button btnType="Success" clicked={this.orderHandler}>ORDER</Button>
       </form>
