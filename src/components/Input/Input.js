@@ -10,7 +10,7 @@ const input = (props) => {
   if(props.invalid && props.shouldValidate && props.touched) {
     inputClasses.push(classes.Invalid);
     validationError = <p className={classes.ValidationError}>
-      {`${props.elementType} ${props.errorMessage}`}</p>;
+      {`${props.label} ${props.errorMessage}`}</p>;
   }
 
   switch(props.elementType) {
@@ -53,7 +53,7 @@ const input = (props) => {
   
   return (
   <div className={classes.Input}>
-    <label htmlFor="" className={classes.Label}>{props.label}</label>
+    <label htmlFor="" className={classes.Label}></label>
     {inputElement}
     {validationError}
   </div>);
