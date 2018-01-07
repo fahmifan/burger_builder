@@ -107,6 +107,45 @@ class ContactData extends Component {
 
   }
 
+  checkValidity = (value, rules) => {
+    
+    let isValid = true;
+
+    if(rules.required) {
+      isValid = value.trim() !== '' && isValid;
+    }
+
+    if(rules.minLength) {
+      isValid = value.minLength >= rules.minLength && isValid;
+    }
+
+    if(rules.maxLength) {
+      isValid = value.maxLength >= rules.maxLength && isValid;
+    }
+
+    return isValid;
+  }
+
+  inputChangeHandler =(event, inputID) => {
+    const updatedOrderForm = {
+      ...this.state.orderForm
+    };
+
+    const updatedFormElement = {
+      ...updatedOrderForm[inputID]
+    };
+    updatedFormElement.value = event.target.value;
+    updatedFormElement.valid = this.checkValidity(
+      updatedFormElement.value, 
+      updatedFormElement.validation
+    );
+    updatedOrderForm[inputID] = updatedFormElement;
+    console.log(updatedFormElement);
+    this.setState({
+      orderForm: updatedOrderForm
+    });
+    console.log(event.target.value);
+  }
   render() {
     let form = (
       <form>
