@@ -17,7 +17,7 @@ class ContactData extends Component {
           },
           value: '',
           validation: {
-           required: true 
+           required: true
           },
           valid: false,
           touched: false,
@@ -70,7 +70,7 @@ class ContactData extends Component {
         email: {
           elementType: 'input',
           elementConfig: {
-            type: 'email',
+            type: 'text',
             placeholder: 'Your E-mail'
           },
           value: '',
