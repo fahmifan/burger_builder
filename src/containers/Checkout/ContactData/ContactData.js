@@ -153,9 +153,15 @@ class ContactData extends Component {
       updatedFormElement.validation
     );
     updatedOrderForm[inputID] = updatedFormElement;
-    console.log(updatedFormElement);
+    
+    let formIsValid = true;
+    for(let inputID in updatedOrderForm) {
+      formIsValid = updatedOrderForm[inputID].valid && formIsValid;
+    }
+
     this.setState({
-      orderForm: updatedOrderForm
+      orderForm: updatedOrderForm,
+      formIsValid: formIsValid
     });
   }
   
