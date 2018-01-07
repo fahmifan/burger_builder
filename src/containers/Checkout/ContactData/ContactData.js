@@ -29,7 +29,7 @@ class ContactData extends Component {
           value: '',
           validation: {
             required: true 
-        },
+          },
           valid: false
         },
         zipCode: {
@@ -43,7 +43,7 @@ class ContactData extends Component {
             required: true,
             minLength: 5,
             maxLength: 5
-        },
+          },
           valid: false
         },
         country: {
@@ -146,13 +146,26 @@ class ContactData extends Component {
     });
     console.log(event.target.value);
   }
+  
   render() {
+    const formElementsArray = [];
+    for(let key in this.state.orderForm) {
+      formElementsArray.push({
+        id: key,
+        config: this.state.orderForm[key]
+      })
+    }
+
     let form = (
-      <form>
-          <Input type="text" inputtype="input" name="name" placeholder="Your name"/> <br/>
-          <Input type="text" inputtype="input" name="email" placeholder="Your email"/> <br/>
-          <Input type="text" inputtype="input" name="street" placeholder="Street"/> <br/>
-          <Input type="text" inputtype="input" name="postalCode" placeholder="Postal Code"/> <br/>
+      <form onSubmit={this.orderHandler}>
+          {formElementsArray.map(formElement => (
+            <Input
+              key={formElement.id}
+              elementType={formElement.config.elementType} 
+              elementConfig={formElement.config.elementConfig} 
+              value={formElement.config.value} 
+              change={(evt) => this.inputChangeHandler(evt, formElement.id)} />
+          ))}
           <Button btnType="Success" clicked={this.orderHandler}>ORDER</Button>
       </form>
     );
