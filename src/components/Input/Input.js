@@ -51,9 +51,11 @@ const input = (props) => {
         value={props.value}/>;
   }
   
-  return (<div className={classes.Input}>
+  return (
+  <div className={classes.Input}>
     <label htmlFor="" className={classes.Label}>{props.label}</label>
     {inputElement}
+    {validationError}
   </div>);
 };
 
