@@ -188,7 +188,10 @@ class ContactData extends Component {
               invalid={!formElement.config.valid} 
               errorMessage={formElement.config.errorMessage}/>
           ))}
-          <Button btnType="Success" clicked={this.orderHandler}>ORDER</Button>
+          <Button 
+            btnType="Success" 
+            clicked={this.orderHandler} 
+            disabled={!this.state.formIsValid} >ORDER</Button>
       </form>
     );
     if(this.state.loading) {
