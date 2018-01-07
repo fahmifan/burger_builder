@@ -10,10 +10,10 @@ class ContactData extends Component {
   state = {
     orderForm: {
         name: {
-          elemntType: 'input',
+          elementType: 'input',
           elementConfig: {
             type: 'text',
-            placeHolder: 'Your Name'
+            placeholder: 'Your Name'
           },
           value: ''
         },
@@ -21,7 +21,7 @@ class ContactData extends Component {
           elementType: 'input',
           elementConfig: {
             type: 'text',
-            placeHolder: 'Street'
+            placeholder: 'Street'
           },
           value: ''
         },
@@ -29,7 +29,7 @@ class ContactData extends Component {
           elementType: 'input',
           elementConfig: {
             type: 'text',
-            placeHolder: 'ZIP Code'
+            placeholder: 'ZIP Code'
           },
           value: ''
         },
@@ -37,7 +37,8 @@ class ContactData extends Component {
           elementType: 'input',
           elementConfig: {
             type: 'text',
-            placeHolder: 'Country'
+            placeholder: 'Country'
+          },
           },
           value: ''
         },
@@ -45,7 +46,8 @@ class ContactData extends Component {
           elementType: 'input',
           elementConfig: {
             type: 'email',
-            placeHolder: 'Your E-mail'
+            placeholder: 'Your E-mail'
+          },
           },
           value: ''
         },
