@@ -4,7 +4,7 @@ import axios from '../../../axios-order';
 import Button from '../../../components/UI/Button/Button';
 import classes from './ContactData.css';
 import Spinner from '../../../components/UI/Spinner/Spinner';
-import Input from '../../../components/Input/Input';
+import InputComp from '../../../components/Input/Input';
 
 class ContactData extends Component {
   state = {
@@ -165,7 +165,7 @@ class ContactData extends Component {
     let form = (
       <form onSubmit={this.orderHandler}>
           {formElementsArray.map(formElement => (
-            <Input
+            <InputComp
               key={formElement.id}
               elementType={formElement.config.elementType} 
               elementConfig={formElement.config.elementConfig} 
