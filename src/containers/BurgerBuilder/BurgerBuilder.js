@@ -114,7 +114,7 @@ class BurgerBuilder extends Component {
     })
   }
 
-  purchaseContinueHandler = () => {
+  purchaseContinueHandler = () => {  
     const queryParams = [];
     for(let i in this.state.ingredients) {
       queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
@@ -130,7 +130,7 @@ class BurgerBuilder extends Component {
 
   render() {
     const disabledinfo = {
-      ...this.state.ingredients
+      ...this.props.ings
     }
     for(let key in disabledinfo) {
       disabledinfo[key] = disabledinfo[key] <= 0
@@ -142,14 +142,14 @@ class BurgerBuilder extends Component {
     }
 
     let burger = this.state.error ? <p style={{textAlign: 'center'}} >Can't load the burger</p> : <Spinner />
-    if(this.state.ingredients) {
+    if(this.props.ings) {
       burger = (
         <Aux>
-          <Burger ingredients={this.state.ingredients} />
+          <Burger ingredients={this.props.ings} />
           <BuildControls 
             totalPrice={this.state.totalPrice}
-            ingredientAdded={this.addIngredientHandler}
-            ingredientDeduct={this.removeIngredientHandler}
+            ingredientAdded={this.props.onIngredientAdded}
+            ingredientDeduct={this.props.onIngredientRemove}
             disabled={disabledinfo}
             purchasable={this.state.purchaseable}
             ordered={this.purchaseHandler}
@@ -157,7 +157,7 @@ class BurgerBuilder extends Component {
         </Aux>
       );
       orderSummary = (<OrderSummary
-        ingredients={this.state.ingredients}
+        ingredients={this.props.ings}
         purchaseCancelled={this.purchaseCancelHandler}
         purchaseContinued={this.purchaseContinueHandler}
         price={this.state.totalPrice}
@@ -180,7 +180,7 @@ class BurgerBuilder extends Component {
 }
 
 const mapStateToProps =  state => {
-  return {
+  return {  
     ings: state.ingredients
   }
 }
