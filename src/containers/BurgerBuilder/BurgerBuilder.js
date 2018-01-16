@@ -211,4 +211,8 @@ class BurgerBuilder extends Component {
   }
 }
 
-export default withErrorHandler(BurgerBuilder, axios);
+const mapStateToProps =  state => {
+  return {
+    ings: state.ingredients
+  }
+}
