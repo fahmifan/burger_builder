@@ -38,17 +38,14 @@ class BurgerBuilder extends Component {
    * update wether the burger purchasable or not. It become true when the ingredients are > 0
    */
   updatePurchasable = (ingredients) => {
-    ingredients = Object.keys(ingredients)
+    const sum = Object.keys(ingredients)
       .map(igKey => {
         return ingredients[igKey];
       })
       .reduce( (sum, el) => {
         return sum + el;
       }, 0);
-    console.log("sum ingredients", ingredients);
-    this.setState({
-      purchaseable: ingredients > 0 ? true:false
-    });
+      return sum > 0
   }
 
   /**
