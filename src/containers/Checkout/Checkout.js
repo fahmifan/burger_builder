@@ -48,4 +48,7 @@ class Checkout extends Component {
   }
 }
 
-export default Checkout;
+const mapStateToProps = state => {
+  return {
+    ings: state.ingredients  }
+}
