@@ -20,7 +20,6 @@ const INGREDIENT_PRICES = {
 
 class BurgerBuilder extends Component {
   state = {
-    ingredients: null,
     totalPrice: 4,
     purchaseable: false,
     purchasing: false,
@@ -116,49 +115,49 @@ class BurgerBuilder extends Component {
   }
 
   purchaseContinueHandler = () => {
-  //   // alert('You continue');
-  //   this.setState({
-  //     loading: true
-  //   })
-  //   const order = {
-  //     ingredients: this.state.ingredients,
-  //     price: this.state.totalPrice,
-  //     customer: {
-  //       name: 'fahmi irfan',
-  //       address: {
-  //         street: 'Test street 1',
-  //         zipCode: '51152',
-  //         country: 'Indonesia'
-  //       }
-  //     },
-  //     email: 'test@email.com',
-  //     deliveryMethod: 'fatest'
-  //   }
-  //   axios.post('/orders.json', order)
-  //     .then(response => {
-  //       // console.log(response);
-  //       this.setState({
-  //         loading: false, purchasing: false
-  //       });
-  //     })
-  //     .catch(error => {
-  //       this.setState({
-  //         loading: false, purchasing: false
-  //       });
-  //     })
+    //   // alert('You continue');
+    //   this.setState({
+    //     loading: true
+    //   })
+    //   const order = {
+    //     ingredients: this.state.ingredients,
+    //     price: this.state.totalPrice,
+    //     customer: {
+    //       name: 'fahmi irfan',
+    //       address: {
+    //         street: 'Test street 1',
+    //         zipCode: '51152',
+    //         country: 'Indonesia'
+    //       }
+    //     },
+    //     email: 'test@email.com',
+    //     deliveryMethod: 'fatest'
+    //   }
+    //   axios.post('/orders.json', order)
+    //     .then(response => {
+    //       // console.log(response);
+    //       this.setState({
+    //         loading: false, purchasing: false
+    //       });
+    //     })
+    //     .catch(error => {
+    //       this.setState({
+    //         loading: false, purchasing: false
+    //       });
+    //     })
   
-  const queryParams = [];
-  for(let i in this.state.ingredients) {
-    queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
-  }
-  queryParams.push('price=' + this.state.totalPrice);
-  const queryString = queryParams.join('&');
+    const queryParams = [];
+    for(let i in this.state.ingredients) {
+      queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
+    }
+    queryParams.push('price=' + this.state.totalPrice);
+    const queryString = queryParams.join('&');
 
-  this.props.history.push({
-    pathname: '/checkout',
-    search: '?' + queryString
-  })
-}
+    this.props.history.push({
+      pathname: '/checkout',
+      search: '?' + queryString
+    })
+  }
 
   render() {
     const disabledinfo = {
@@ -216,6 +215,7 @@ const mapStateToProps =  state => {
     ings: state.ingredients
   }
 }
+
 const mapDispatchToProps = dispatch => {
   return {
     onIngredientAdded: (ingName) => dispatch({type: actionTypes.ADD_INGREDIENT, ingredientName: ingName}),
