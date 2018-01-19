@@ -65,6 +65,7 @@ export const fetchOrdersStart = () => {
 
 export const fetchOrder = (dispatch) => {
   return dispatch => {
+    dispatch(fetchOrdersStart());
     axios.get('/orders.json')
       .then(resp => {
         let fetchOrders = [];
