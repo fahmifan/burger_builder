@@ -15,12 +15,21 @@ class BurgerBuilder extends Component {
   state = {
     purchaseable: false,
     purchasing: false,
-    loading: false,
-    error: false
   }
 
   componentDidMount() {
     this.props.onInitIngredients();
+    // axios.get('https://react-myburger-19cb8.firebaseio.com/ingredients.json')
+    //   .then(resp => {
+    //     this.setState({
+    //       ingredients: resp.data
+    //     })
+    //   })
+    //   .catch(error => {
+    //     this.setState({
+    //       error: true
+    //     })
+    //   })
   }
 
   /**
@@ -63,11 +72,11 @@ class BurgerBuilder extends Component {
     }
     let orderSummary = null;
 
-    if(this.state.loading) {
-      orderSummary = <Spinner />
-    }
+    // if(this.state.loading) {
+    //   orderSummary = <Spinner />
+    // }
 
-    let burger = this.state.error ? <p style={{textAlign: 'center'}} >Can't load the burger</p> : <Spinner />
+    let burger = this.props.error ? <p style={{textAlign: 'center'}} >Can't load the burger</p> : <Spinner />
     if(this.props.ings) {
       burger = (
         <Aux>
@@ -89,9 +98,9 @@ class BurgerBuilder extends Component {
         price={this.props.totalPrice}
       />);
     }
-    if(this.state.loading) {
-      orderSummary = <Spinner />
-    }
+    // if(this.state.loading) {
+    //   orderSummary = <Spinner />
+    // }
     return (
       <Aux>
         <Modal 
