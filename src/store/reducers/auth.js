@@ -5,6 +5,7 @@ const initState = {
   userId: null,
   loading: false,
   error: null,
+  authRedirectPath: '/'
 }
 
 const reducer = (state = initState, action) => {
@@ -33,6 +34,11 @@ const reducer = (state = initState, action) => {
         ...state,
        token: null,
        userId: null 
+      }
+    case actionType.SET_AUTH_REDIRECT_PATH:
+      return {
+        ...state,
+        path: action.path
       }
     default:
       return state;

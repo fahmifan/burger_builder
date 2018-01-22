@@ -6,7 +6,7 @@ import Input from '../../components/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import classes from './Auth.css';
 import Spinner from '../../components/UI/Spinner/Spinner';
-import * as actionTypes from '../../store/actions/index';
+import * as actions from '../../store/actions/index';
 
 class Auth extends Component {
   state = {
@@ -103,6 +103,12 @@ class Auth extends Component {
     });
   }
 
+  componentDidMount() {
+    if(!this.props.buildingBurger && this.props.authRedirect !== '/') {
+      this.props.onSetAuthRedirectPath();
+    }
+  }
+
   render() {
     const formElementsArray = [];
     for(let key in this.state.controls) {
@@ -134,7 +140,7 @@ class Auth extends Component {
 
     let authRedirect = null;
     if(this.props.isAuth) {
-      authRedirect = <Redirect to="/" />
+      authRedirect = <Redirect to={this.props.authRedirect} />
     }
 
     return (
@@ -159,13 +165,16 @@ const mapStateToProps = state => {
   return {
     loading: state.auth.loading,
     error: state.auth.error,
-    isAuth: state.auth.token !== null
+    isAuth: state.auth.token !== null,
+    buildingBurger: state.burgerBuilder.building,
+    authRedirect: state.auth.path
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAuth: (email, password, isSignup) => dispatch(actionTypes.auth(email, password, isSignup))
+    onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password, isSignup)),
+    onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/'))
   }
 }
 
