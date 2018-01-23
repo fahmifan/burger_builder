@@ -51,7 +51,6 @@ export const auth = (email, password, isSignup) => {
     isSignup && (url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyCsiOl-aJogaeBXJe2OkW8EskcOhr9olVU');
     axios.post(url, authData)
       .then(res => {
-        console.log(res.data);
         const experationDate = new Date(new Date().getTime() + res.data.expiresIn * 1000);
         localStorage.setItem('token', res.data.idToken);
         localStorage.setItem('expirationDate', experationDate);
@@ -60,7 +59,6 @@ export const auth = (email, password, isSignup) => {
         dispatch(checkAuthTimeout(res.data.expiresIn))
       })
       .catch(error => {
-        console.log(error);
         dispatch(authFail(error.response.data.error))
       })
   }

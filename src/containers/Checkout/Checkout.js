@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSumamry';
 import ContactData from '../Checkout/ContactData//ContactData';
-import * as actions from '../../store/actions/index';
 
 class Checkout extends Component {
 
@@ -18,7 +17,6 @@ class Checkout extends Component {
 
   render() {
     let summary = <Redirect to="/" />
-    console.log("checkout ings", this.props.ings)
     if(this.props.ings) {
       const purchaseRedirect = this.props.purchased ? <Redirect to="/" /> : null;
       summary = (
