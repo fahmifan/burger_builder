@@ -6,7 +6,6 @@ import Button from '../../../components/UI/Button/Button';
 import classes from './ContactData.css';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import InputComp from '../../../components/Input/Input';
-import wothErrorHandler from '../../../hoc/withErrorHandlers/withErrorHandlers';
 import withErrorHandlers from '../../../hoc/withErrorHandlers/withErrorHandlers';
 import * as actions from '../../../store/actions/index';
 
